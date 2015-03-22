@@ -1,0 +1,16 @@
+{
+    "contents" : "##Creates a matrix that is saved within a kind of \"cache\" and when trying to solve\n##it will look into the \"cache\" to retrieve the data or calculate it if it is not there and return the inverse of the matrix\n\n## \n\nmakeCacheMatrix <- function(x = matrix()) {\n\t\t\tm <- NULL\n        set <- function(y) {\n                x <<- y\n                m <<- NULL\n        }\n        get <- function() x\n        setmatrix <- function(matrix) m <<- matrix\n        getmatrix <- function() m\n        list(set = set, get = get,\n             setmatrix = setmatrix,\n             getmatrix = getmatrix)\n}\n\n\n## Write a short comment describing this function\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n\t\tm <- x$getmatrix()\n        if(!is.null(m)) {\n                message(\"getting cached data\")\n                return(m)\n        }\n        data <- x$get()\n        m <- solve(data, ...)\n        x$setmatrix(m)\n        m\n}\n",
+    "created" : 1426720976231.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "473005754",
+    "id" : "B146A784",
+    "lastKnownWriteTime" : 1426724150,
+    "path" : "F:/Documents/GitHub/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
